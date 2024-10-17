@@ -1,0 +1,90 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DesigneFinal.View.SecondView"
+             Title="SecondView">
+
+    <!-- Grid principal -->
+    <Grid>
+
+        
+        <!-- Grid Row Definitions -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <!-- Main Content -->
+            <RowDefinition Height="Auto" />
+            <!-- Footer -->
+        </Grid.RowDefinitions>
+
+        <!-- Main Content with Two Columns -->
+        <Grid Grid.Row="0" Padding="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <!-- Left Information Panel -->
+                <ColumnDefinition Width="3*" />
+                <!-- Right Media Display -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Left Side: Information Panel with stacked sections -->
+            <Border Grid.Column="0" BackgroundColor="#333" Padding="5" StrokeThickness="1" Stroke="#ddd" Opacity="0.85">
+                <VerticalStackLayout VerticalOptions="Center">
+                    <!-- Header with Date, Time -->
+                    <HorizontalStackLayout HorizontalOptions="Center" Margin="0,0,0,5">
+                        <!-- Date Display -->
+                        <Label x:Name="TBdate" FontAttributes="Bold" TextColor="White" FontSize="12" Margin="0,0,10,0" />
+
+                        <!-- Time Display -->
+                        <Label x:Name="TBheure" FontSize="12" FontAttributes="Bold" TextColor="White" Margin="10,0,0,0" />
+                    </HorizontalStackLayout>
+
+                    <!-- Temperature & Humidity Section with Sensor Name -->
+                    <VerticalStackLayout Margin="0,10,0,10" HorizontalOptions="Center">
+                        <Label Text="Capteur de température :" FontSize="16" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Label Text="💧" FontSize="24" HorizontalOptions="Center" TextColor="#87CEEB" Margin="0,5" />
+                            <Label x:Name="TBtemp" Text="Température : 15°C" FontAttributes="Bold" FontSize="14" TextColor="White" HorizontalOptions="Center" Margin="0,2" />
+                            <Label x:Name="TBhum" Text="Humidité : 20%" TextColor="White" HorizontalOptions="Center" FontSize="14" />
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+
+                    <!-- Sound Section with Sensor Name -->
+                    <VerticalStackLayout Margin="0,10,0,10" HorizontalOptions="Center">
+                        <Label Text="Capteur de son :" FontSize="16" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Label Text="🔊" FontSize="24" HorizontalOptions="Center" TextColor="#FFD700" Margin="0,5" />
+                            <Label x:Name="TBson" Text="Son : 40dB" FontAttributes="Bold" FontSize="14" TextColor="White" HorizontalOptions="Center" Margin="0,2" />
+                            <Label Text="Niveau sonore" TextColor="White" HorizontalOptions="Center" FontSize="14" />
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+
+                    <!-- Air Quality Section with Sensor Name -->
+                    <VerticalStackLayout Margin="0,10,0,10" HorizontalOptions="Center">
+                        <Label Text="Capteur de qualité de l'air :" FontSize="16" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Label Text="🌫️" FontSize="24" HorizontalOptions="Center" TextColor="#32CD32" Margin="0,5" />
+                            <Label x:Name="TBPM2" Text="PM2.5: Bonne" FontAttributes="Bold" FontSize="14" TextColor="White" HorizontalOptions="Center" Margin="0,2" />
+                            <Label x:Name="TBPM10" Text="PM10 : Faibles" TextColor="White" HorizontalOptions="Center" FontSize="14" />
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Right Side: Image and Video Display Area -->
+            <Border Grid.Column="1" BackgroundColor="White" Padding="5" Stroke="#ddd" StrokeThickness="1" Margin="5,0,0,0">
+                <Grid>
+                    <Image x:Name="imageControl" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" IsVisible="True" />
+                    
+
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- Footer Information Area -->
+        <Border Grid.Row="1" BackgroundColor="#333" Padding="5" Opacity="0.85" Margin="0,5,0,5">
+            <Label x:Name="TBinfo" HorizontalOptions="Start" VerticalOptions="Center" FontSize="12" FontAttributes="Italic" TextColor="White"
+                   Text="Informations dynamiques à afficher ici..." Margin="10,0,0,0" />
+        </Border>
+
+        <!-- Full-screen alert image -->
+        <Image x:Name="fullScreenAlertImage" Grid.RowSpan="2" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="Fill" IsVisible="False" />
+    </Grid>
+</ContentPage>

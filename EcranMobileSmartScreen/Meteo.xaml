@@ -1,0 +1,58 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DesigneFinal.View.Meteo"
+             Title="Meteo">
+
+    <!-- Grid principal pour la météo -->
+    <Grid BackgroundColor="White">
+        <!-- Title -->
+        <Label Text="Météo Annecy" FontSize="36" FontAttributes="Bold" 
+               HorizontalOptions="Center" VerticalOptions="Start" Margin="0,20,0,0" TextColor="DarkBlue" />
+
+        <!-- Grid pour les prévisions météorologiques -->
+        <Grid Padding="10,100,10,10">
+            <!-- Définitions des colonnes -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Day 1 (Today) -->
+            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
+                <Label x:Name="TB_Aujourdhui" Text="Aujourd'hui" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
+                <Image x:Name="jour0" WidthRequest="100" HeightRequest="100" Margin="5"/>
+                <Label x:Name="TB_temperature" Text="21°C" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
+                <Label x:Name="TB_condition" Text="Éclaircies" FontSize="18" TextColor="DarkGray" HorizontalOptions="Center"/>
+                <Label x:Name="TB_Humidité" Text="60% d'humidité" FontSize="16" HorizontalOptions="Center" />
+                <Label x:Name="TB_bas" Text="Min : 9°C" FontSize="16" HorizontalOptions="Center" />
+                <Label x:Name="TB_haut" Text="Max : 21°C" FontSize="16" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Day 2 (Tomorrow) -->
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                <Label x:Name="TB_Demain" Text="Demain" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Image x:Name="jour1" WidthRequest="100" HeightRequest="100" Margin="5"/>
+                <Label x:Name="TB_basD" Text="Min : 7°C" FontSize="16" HorizontalOptions="Center"/>
+                <Label x:Name="TB_hautD" Text="Max : 14°C" FontSize="16" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <!-- Day 3 (Day After Tomorrow) -->
+            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
+                <Label x:Name="TB_ApresDemain" Text="Après-demain" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Image x:Name="jour2" WidthRequest="100" HeightRequest="100" Margin="5"/>
+                <Label x:Name="TB_basAD" Text="Min : 6°C" FontSize="16" HorizontalOptions="Center"/>
+                <Label x:Name="TB_hautAD" Text="Max : 12°C" FontSize="16" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <!-- Day 4 (Three Days Later) -->
+            <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center">
+                <Label x:Name="TB_Dans3Jours" Text="Dans 3 Jours" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Image x:Name="jour3" WidthRequest="100" HeightRequest="100" Margin="5"/>
+                <Label x:Name="TB_bas3J" Text="Min : 6°C" FontSize="16" HorizontalOptions="Center"/>
+                <Label x:Name="TB_haut3J" Text="Max : 14°C" FontSize="16" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
